@@ -1,0 +1,36 @@
+BUSCADOR LOCAL DE NECESIDADES SERCOP - ETAPA 2
+
+1. Descomprime el ZIP en una carpeta nueva y abre INICIAR.bat.
+2. Pulsa Consultar SERCOP. Busca y aplica filtros por palabras, provincia, tipo, estado o dias restantes.
+3. Selecciona una necesidad en la tabla. Pulsa Abrir necesidad para ir a la ficha oficial, o Documentos para buscar sus anexos.
+4. Si el listado no trae un enlace directo reconocible, abre el listado oficial, entra en el detalle y copia la direccion completa de esa ficha. Pegala cuando la aplicacion la pida.
+5. Si se detectan anexos, selecciona los que necesites o pulsa Descargar todos en ZIP. El programa indicara si alguno no pudo descargarse.
+
+IMPORTANTE
+La consulta, el formato de la ficha y la descarga automatica dependen del portal oficial. Esta version no se probo contra documentos reales del SERCOP desde el entorno de desarrollo. Algunos enlaces pueden no detectarse, requerir una sesion o una verificacion. Si ocurre, abre la ficha y descarga los documentos manualmente. No se resuelve ni se evade ningun captcha.
+
+Se eliminó el filtro de presupuesto. Los filtros se aplican unicamente al lote 1 recibido; no esta verificado que este lote abarque todas las oportunidades. El tipo de necesidad no indica necesariamente si hay puja. Verifica la vigencia, requisitos y documentos en el SERCOP.
+
+PYTHON Y ENTORNO VIRTUAL
+Windows necesita Python 3.10 o superior. INICIAR.bat crea .venv si aun no existe e intenta usar py o python. Tambien puedes usar PowerShell desde esta carpeta:
+  python -m venv .venv
+  .\.venv\Scripts\python.exe app.py
+No se necesitan paquetes externos. El entorno .venv se crea en tu equipo y no viene en el ZIP.
+
+CORRECCION: se excluyen los enlaces de navegacion Regresar y Enviar proforma de la lista de archivos. Los enlaces identificados se descargan como antes; si algun anexo usa otro formato, podria no aparecer o necesitar descarga manual.
+
+LECTURA DE FICHA Y DESCARGA EN CARPETA
+Selecciona la fila y pulsa Ficha completa para leer el texto publico de la necesidad, incluidos los datos de contacto y CPC cuando figuren en la ficha. Si el registro no trae enlace directo, pega la URL de la ficha. No se ejecutan scripts de la pagina; puede haber campos o anexos que no se puedan interpretar.
+Pulsa Documentos: selecciona los que desees y luego Descargar en carpeta. Si no seleccionas ninguno, se intentan descargar todos los detectados. Se conserva el nombre informado por el servidor cuando sea posible; si ya existe, se agrega un numero. Tambien puedes guardar los documentos detectados en un ZIP. Si una descarga falla se indica en pantalla.
+Se hacen pausas cortas variables entre descargas para moderar las solicitudes; no garantizan que el portal permita el acceso. No se resuelven captchas ni se inician sesiones. Se mantienen los limites de 30 MB por documento y 150 MB por operacion. Los enlaces de descarga y la ficha aun necesitan probarse con el proceso concreto del usuario.
+
+BUSQUEDA Y VISTA DE RESULTADOS
+Puedes elegir Todas las palabras, Cualquiera (separar con comas) o Frase exacta. Ejemplo: correo, google workspace, nube para buscar cualquiera de esas frases. Los filtros se aplican solo a los registros del lote recibido.
+Selecciona una fila para leer el objeto completo publicado. Con doble clic se abre el detalle; desde ahi puedes consultar la ficha completa, abrir el SERCOP o revisar y descargar archivos. Las fechas de la tabla son la publicacion y el plazo de proformas; no necesariamente son inicio y cierre de una subasta. El presupuesto solo aparece si la fuente lo identifica explicitamente; cero, valores unitarios y ausencia no se interpretan como presupuesto. La modalidad de puja no se deduce.
+La tabla indica Sin consultar en archivos hasta que pulses Documentos. La cantidad es el numero de enlaces detectados, no una garantia de que no haya otros. El tipo de archivo aparece solo si puede identificarse por su nombre o enlace. Puedes seleccionar varios y descargarlos en ZIP, o descargarlos todos. El texto de la ficha y los nombres de anexos se extraen como los presenta el portal; no son resumenes de IA.
+
+SELECCION DE FUENTES (AVANCE PARCIAL)
+Puedes seleccionar cualquiera de las nueve secciones. Consultar SERCOP solo consulta automaticamente Necesidades y recepcion de proformas, con el mismo lote de antes. Las otras ocho todavia no consultan ni filtran datos en la aplicacion: usa Abrir secciones manuales y busca dentro del portal. Para secciones sin enlace directo comprobado se abre el menu principal. La seleccion no implica resultados unificados, ni que los filtros se apliquen en el portal. No se ha validado esta interfaz en Windows ni las fuentes nuevas en vivo. La integracion automatica de las ocho secciones sigue pendiente.
+
+INTERFAZ REDISTRIBUIDA
+Usa Dónde buscar y Filtros avanzados para desplegar u ocultar esas opciones. El boton Modo noche cambia los colores durante la sesion; Modo claro restaura el tema. La consulta automatica sigue limitada a Necesidades y recepcion de proformas; las otras fuentes son accesos manuales. La cobertura del lote y la prueba en Windows siguen pendientes.
